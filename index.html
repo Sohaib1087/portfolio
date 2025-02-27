@@ -1,1 +1,120 @@
-<iframe src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/sohaib1087/portfolio/main/sohaibresume25.pdf&embedded=true" width="600" height="500"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px 60px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+        }
+
+        .timer {
+            font-size: 40px;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #3498db;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .title {
+                font-size: 28px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .timer {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">We Are Coming Soon!</div>
+        <div class="subtitle">Our website is under construction, but we'll be up and running very soon.</div>
+        <div class="timer" id="countdown"></div>
+        <button class="button" onclick="alert('Thank you for your patience!')">Notify Me</button>
+    </div>
+
+    <script>
+        // Countdown Timer for 5 days
+        function countdown() {
+            const countDate = new Date("Mar 5, 2025 00:00:00").getTime();
+            const timerElement = document.getElementById("countdown");
+
+            const interval = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = countDate - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    timerElement.innerHTML = "We are live!";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    timerElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                }
+            }, 1000);
+        }
+
+        countdown();
+    </script>
+
+</body>
+</html>
